@@ -19,11 +19,6 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-60mgy&dk3q%mtg1pz=l4v*0v821ot178gcc^q_ok-rrr57yr$o'
-
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
 
 ALLOWED_HOSTS = []
 
@@ -39,7 +34,6 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'mainpageapp',
     'producerapp',
-    'accountapp',
 ]
 
 MIDDLEWARE = [
@@ -57,7 +51,7 @@ ROOT_URLCONF = 'recommendproject.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR,'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [

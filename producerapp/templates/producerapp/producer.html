@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div>
+    <h1>producer</h1>
+
+    <form action="{% url 'producerapp:play' %}" method="post">
+      {% csrf_token %}
+      <input type="submit" class="btn btn-dark rounded-pill col-6 mt-3">
+    </form>
+</div>
+
+{% endblock %}
