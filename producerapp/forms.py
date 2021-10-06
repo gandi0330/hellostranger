@@ -5,7 +5,6 @@ from producerapp.models import Play
 
 class PlayCreationForm(ModelForm):
 
-
     class Meta:
         model = Play
         fields = ['title', 'ganre']
