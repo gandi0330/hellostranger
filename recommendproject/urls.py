@@ -26,4 +26,5 @@ urlpatterns = [
     path('main/',include('mainpageapp.urls'), name='home'),
     path('producer/',include('producerapp.urls')),
     path('account/',include('accountapp.urls')),
+    path('profile/',include('profileapp.urls')),
 ]

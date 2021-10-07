@@ -4,11 +4,19 @@
 
 <div style="text-align:center;">
     <h1>Selectpage</h1>
-    <br>
-    <br>
-    <br>
 
-    <h5>producer button, consumer button</h5>
+
+    <div class="text-center my-5">
+        <a style="margin:1rem;" href="{% url 'producerapp:play' %}"
+          class="btn btn-dark rounded-pill material-icons">
+          brush
+        </a>
+        <a style="margin:1rem;" href="{% url 'mainpageapp:mainpage' %}"
+          class="btn btn-dark rounded-pill material-icons">
+          search
+        </a>
+    </div>
+
 </div>
 
 {% endblock %}

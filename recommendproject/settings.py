@@ -13,6 +13,8 @@ import os
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
+from django.urls import reverse_lazy
+
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 
@@ -36,6 +38,7 @@ INSTALLED_APPS = [
     'producerapp',
     'accountapp',
     'selectpage',
+    'profileapp',
     'bootstrap4',
 ]
 
@@ -95,6 +98,12 @@ DATABASES = {
     }
 }
 
+LOGIN_REDIRECT_URL = reverse_lazy('mainpageapp:mainpage')
+LOGOUT_REDIRECT_URL = reverse_lazy('accountapp:login')
+
+MEDIA_URL = '/media/'
+
+MEDIA_ROOT = os.path.join(BASE_DIR,'media')
 
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
