@@ -1,4 +1,3 @@
-
 {% load static %}
 
 
@@ -33,11 +32,11 @@
 
   </style>
 
-  {% if article_list %}
+  {% if play_list %}
     <div class="container">
-      {% for article in article_list %}
-      <a href="{% url 'articleapp:detail' pk=article.pk %}">
-        {% include 'snippets/card_article.html' with article=article %}
+      {% for play in play_list %}
+      <a>
+        {% include 'snippets/card_article.html' with play=play %}
       </a>
       {% endfor %}
     </div>
@@ -49,11 +48,5 @@
     </div>
   {% endif %}
 
-  {% include 'snippets/pagination.html' %}
+<!--  {% include 'snippets/pagination.html' %}-->
 
-  <div class="text-center my-5">
-    <a  href="{% url 'articleapp:create' %}"
-      class="btn btn-dark rounded-pill material-icons">
-      brush
-    </a>
-  </div>

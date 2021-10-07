@@ -29,6 +29,23 @@
 
   </style>
 
+  <div style="text-align:center;padding:3rem">
+
+
+      <form name="input" method="post" action="">
+        <select name="location">
+        <option value="">지역선택</option>
+        <option value="서울">서울</option>
+        <option value="부산">부산</option>
+        <option value="광주">광주</option>
+        </select>
+        &nbsp&nbsp
+
+        <input type="text" name="starttime" maxlength="8" value="20210101" style="text-align:center;width:100px;">  ~
+        <input type="text" name="endtime" maxlength="8" value="20211231" style="text-align:center;width:100px;">
+        <input type="submit" value="입력">
+      </form>
+  </div>
   {% if play_list %}
   <div class="container">
     {% for play in play_list %}

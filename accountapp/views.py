@@ -7,10 +7,11 @@ from django.shortcuts import render
 from django.urls import reverse_lazy
 from django.utils.decorators import method_decorator
 from django.views.generic import CreateView, DetailView, UpdateView, DeleteView
-from django.views.generic.list import MultipleObjectMixin
+from django.views.generic.list import MultipleObjectMixin, ListView
 
 from accountapp.decorators import account_ownership_required
 from accountapp.forms import AccountUpdateForm
+from profileapp.models import Profile
 
 has_ownership = [account_ownership_required, login_required]
 
@@ -53,3 +54,4 @@ class AccountDeleteView(DeleteView):
     context_object_name = 'target_user'
     success_url = reverse_lazy('accountapp:login')
     template_name = 'accountapp/delete.html'
+
