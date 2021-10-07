@@ -7,4 +7,4 @@ class PlayCreationForm(ModelForm):
 
     class Meta:
         model = Play
-        fields = ['title', 'ganre','image','location','etc']
+        fields = ['title', 'genre','image','location','etc']

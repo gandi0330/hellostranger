@@ -14,4 +14,4 @@ class PlayCreateView(CreateView):
     template_name = 'producerapp/producer.html'
 
     def get_success_url(self):
-        return reverse('mainpageapp:main')
+        return reverse('mainpageapp:mainpage')
