@@ -11,6 +11,7 @@ from producerapp.models import Play
 class PlayCreateView(CreateView):
     model = Play
     form_class = PlayCreationForm
+    context_object_name = 'target_play'
     template_name = 'producerapp/producer.html'
 
     def get_success_url(self):

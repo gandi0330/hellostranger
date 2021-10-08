@@ -2,8 +2,9 @@
 
 {% block content %}
 
-<li>{{object.play1_title}} :  {{object.play1_rate}}</li>
-<li>{{object.play2_title}} :  {{object.play2_rate}} </li>
-<li>{{object.play3_title}} :  {{object.play3_rate}}</li>
+    {% for item in object %}
 
+    <li>title : {{item.0}}   &nbsp rate : {{item.1}}</li>
+
+    {% endfor %}
 {% endblock %}

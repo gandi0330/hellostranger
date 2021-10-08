@@ -1,21 +1,3 @@
-import numpy as np
-import pandas as pd
-from django.contrib.auth.decorators import login_required
-from django.contrib.auth.forms import UserCreationForm
-from django.contrib.auth.models import User
-from django.http import HttpResponse
-from django.shortcuts import render, get_object_or_404
-
-# Create your views here.
-from django.urls import reverse_lazy
-from django.utils.decorators import method_decorator
-from django.views.generic import CreateView, DetailView, UpdateView, DeleteView
-from django.views.generic.list import MultipleObjectMixin, ListView
-
-from accountapp.decorators import account_ownership_required
-from accountapp.forms import AccountUpdateForm
-from profileapp.models import Profile
-
 import pandas as pd
 import numpy as np
 from random import *
@@ -23,60 +5,8 @@ from sklearn.feature_extraction.text import CountVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
 from sklearn.metrics import mean_squared_error
 import warnings; warnings.filterwarnings('ignore')
-has_ownership = [account_ownership_required, login_required]
-
-
-
-
-class AccountCreateView(CreateView):
-    model = User
-    form_class = UserCreationForm
-    success_url = reverse_lazy('mainpageapp:mainpage')
-    template_name = 'accountapp/create.html'
-
-
-
-class AccountDetailView(DetailView):
-    model = User
-    context_object_name =  'target_user'
-    template_name = 'accountapp/detail.html'
-
-    # paginate_by = 25
-
-    # def get_context_data(self, **kwargs):
-    #     object_list = Article.objects.filter(writer=self.get_object())
-    #     return super(AccountDetailView, self).get_context_data(object_list=object_list, **kwargs)
-
-@method_decorator(has_ownership, 'get')
-@method_decorator(has_ownership, 'post')
-class AccountUpdateView(UpdateView):
-    model = User
-    form_class = AccountUpdateForm
-    context_object_name = 'target_user'
-    success_url = reverse_lazy('mainpageapp:mainpage')
-    template_name = 'accountapp/update.html'
-
-
-@method_decorator(has_ownership, 'get')
-@method_decorator(has_ownership, 'post')
-class AccountDeleteView(DeleteView):
-    model = User
-    context_object_name = 'target_user'
-    success_url = reverse_lazy('accountapp:login')
-    template_name = 'accountapp/delete.html'
-
-
-def doSomething(request, pk):
-    post = get_object_or_404(Profile,pk=pk)
-    consumer_list = [[post.play1_title, post.play1_rate],[post.play2_title,post.play2_rate],[post.play3_title,post.play3_rate]]
-
-    recommend_list = ai(consumer_list)
-    # recommend_list = [['test1','3'],['test2','4.2'],['test3','3.2']]
-    context = {'object' : recommend_list}
-    return render(request, 'accountapp/consumer.html', context)
-
 def ai(consumer_list):
-    plays = pd.read_excel('C:/Users/comn/PycharmProjects/recommendproject/accountapp/play_data.xlsx')
+    plays = pd.read_excel('/play_data.xlsx')
     ratings = pd.DataFrame({'userid':[1 for i in range(len(consumer_list))],
                             'playid':[ plays.index[plays['title'] == x[0]].tolist()[0] for x in consumer_list],
                             'rating':[float(x[1]) for x in consumer_list]})
@@ -133,5 +63,4 @@ def ai(consumer_list):
         for i in range(len(result)):
             result_list.append([result.index[i],result.values[i]])
         return result_list
-
     return recomm_play_by_userid(ratings_pred2_mat, 1, unseen_list, 5)
