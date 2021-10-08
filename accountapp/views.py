@@ -1,7 +1,8 @@
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
-from django.shortcuts import render
+from django.http import HttpResponse
+from django.shortcuts import render, get_object_or_404
 
 # Create your views here.
 from django.urls import reverse_lazy
@@ -55,3 +56,17 @@ class AccountDeleteView(DeleteView):
     success_url = reverse_lazy('accountapp:login')
     template_name = 'accountapp/delete.html'
 
+
+
+
+def doSomething(request, pk):
+    post = get_object_or_404(Profile,pk=pk)
+
+    # consumer_data = [[User.profile.play1_title, Profile.play1_rate],
+    #                  [Profile.play2_title, Profile.play2_rate],
+    #                  [Profile.play3_title, Profile.play3_rate]]
+    context = {'object':post}
+    # 파이썬 함수 실행 consumer_data를 매개변수로 넘겨줌
+    # 실행되서 나온 연극을 리스트로 받음
+    # 새로운 페이지에서 받은 리스트를 출력함
+    return render(request, 'accountapp/consumer.html', context)

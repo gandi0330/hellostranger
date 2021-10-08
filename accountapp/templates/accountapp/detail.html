@@ -29,6 +29,10 @@
             <br>
             <br>
 
+            <a href="{% url 'accountapp:doSomething' pk=target_user.profile.pk %}" class="button">뭔가 하기</a>
+
+
+
             {% else %}
                 {% if target_user == user %}
                 <a href="{% url 'profileapp:create' %}">
