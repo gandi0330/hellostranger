@@ -10,3 +10,4 @@ class Play(models.Model):
     rate =models.CharField(max_length=2,null=True)
     vote = models.CharField(max_length=10,null=True)
 
+

@@ -13,6 +13,7 @@ def readcsv(request):
 
     url = 'C:/Users/comn/PycharmProjects/recommendproject/playlistapp/data_df_1.csv'
 
+
     with open(url,'r') as f:
         dr = csv.DictReader(f)
         s = pd.DataFrame(dr)
