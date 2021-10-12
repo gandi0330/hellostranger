@@ -34,7 +34,6 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'mainpageapp',
     'producerapp',
     'accountapp',
     'selectpage',
@@ -99,7 +98,7 @@ DATABASES = {
 }
 
 
-LOGIN_REDIRECT_URL = reverse_lazy('mainpageapp:mainpage')
+LOGIN_REDIRECT_URL = reverse_lazy('selectpage:selectpage')
 LOGOUT_REDIRECT_URL = reverse_lazy('accountapp:login')
 
 MEDIA_URL = '/media/'

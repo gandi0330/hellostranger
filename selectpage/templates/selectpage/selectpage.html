@@ -10,10 +10,18 @@
           class="btn btn-dark rounded-pill material-icons">
           brush
         </a>
-        <a style="margin:1rem;" href="{% url 'mainpageapp:mainpage' %}"
+        {% if not user.is_authenticated %}
+        <a style="margin:1rem;" href="{% url 'accountapp:login' %}"
           class="btn btn-dark rounded-pill material-icons">
           search
         </a>
+        {% else %}
+        <a style="margin:1rem;" href="{% url 'accountapp:mainpage' pk=user.pk %}"
+          class="btn btn-dark rounded-pill material-icons">
+          search
+        </a>
+        {% endif %}
+
     </div>
 
 </div>

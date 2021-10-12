@@ -18,14 +18,13 @@ from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import path, include
 
-from mainpageapp.views import mainpage
+
 from selectpage.views import selectpage
 
 urlpatterns = [
 
     path('admin/', admin.site.urls),
     path('',include('selectpage.urls')),
-    path('main/',include('mainpageapp.urls'), name='home'),
     path('producer/',include('producerapp.urls')),
     path('account/',include('accountapp.urls')),
     path('profile/',include('profileapp.urls')),
