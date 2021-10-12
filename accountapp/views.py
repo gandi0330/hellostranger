@@ -72,7 +72,7 @@ class ArticleListView(ListView):
     template_name = 'accountapp/mainpage.html'
 
 
-def test(request, pk):
+def filtering(request, pk):
     area = request.GET.get('area')
     model = Play
     if area:
@@ -194,6 +194,7 @@ def data_preprocessing(plays, consumer_list):
 
 # 고객 데이터(consumer_list)를 입력 받아 맞춤 추천해주는 함수
 def ai(consumer_list):
+    # data_df_1.xlsx 파일은 views.py 와 같은 폴더에 있습니다
     plays_df = pd.read_excel('C:/Users/comn/PycharmProjects/recommendproject/accountapp/data_df_1.xlsx')
 
     # 1. 데이터 전처리 함수(data_preprocessing)
