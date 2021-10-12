@@ -1,6 +1,6 @@
 from django.apps import AppConfig
 
 
-class ProducerappConfig(AppConfig):
+class PlaylistappConfig(AppConfig):
     default_auto_field = 'django.db.models.BigAutoField'
-    name = 'producerapp'
+    name = 'playlistapp'

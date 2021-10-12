@@ -31,30 +31,37 @@
 
   <div style="text-align:center;padding:3rem">
 
-
-      <form name="input" method="post" action="">
-        <select name="location">
-        <option value="">지역선택</option>
-        <option value="서울">서울</option>
-        <option value="부산">부산</option>
-        <option value="광주">광주</option>
-        </select>
-        &nbsp&nbsp
-
-        <input type="text" name="starttime" maxlength="8" value="20210101" style="text-align:center;width:100px;">  ~
-        <input type="text" name="endtime" maxlength="8" value="20211231" style="text-align:center;width:100px;">
-        <input type="submit" value="입력">
-      </form>
+    <div style="padding:2rem;">
+        <form action="{% url 'accountapp:area' pk=user.pk %}" method="get">
+          <select name="area">
+              <option value="">지역선택</option>
+              <option value="서울">서울</option>
+              <option value="부산">부산</option>
+              <option value="광주">광주</option>
+              <option value="대구">대구</option>
+              <option value="대전">대전</option>
+              <option value="인천">인천</option>
+              <option value="전라도">전라도</option>
+              <option value="경상도">경상도</option>
 
 
+          </select>
+            <input type="submit" value="입력">
+        </form>
+    </div>
+
+      {% if user.profile %}
+      <a href="{% url 'accountapp:recommend' pk=user.pk %}" class="button" style="color:black;border-radius:.5rem;box-shadow: 0 0 7px black;padding:.15rem;">추천</a>
+      {% endif %}
   </div>
   {% if play_list %}
   <div class="container">
-    {% for play in play_list %}
-      <a>
-        {% include 'snippets/card_article.html' with play=play %}
-      </a>
-    {% endfor %}
+      {% for play in play_list %}
+        <a>
+          {% include 'snippets/card_article.html' with play=play %}
+        </a>
+      {% endfor %}
+
   </div>
 
   <script src="{% static 'js/magicgrid.js' %}"></script>

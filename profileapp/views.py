@@ -5,8 +5,8 @@ from django.urls import reverse_lazy, reverse
 from django.utils.decorators import method_decorator
 from django.views.generic import CreateView, UpdateView
 
-from producerapp.forms import PlayCreationForm
-from producerapp.models import Play
+
+from playlistapp.models import Play
 from profileapp.decorators import profile_ownership_required
 from profileapp.forms import ProfileCreationForm
 from profileapp.models import Profile

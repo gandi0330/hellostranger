@@ -18,12 +18,12 @@
             </h2>
             <br>
             <br>
-            <h3>본 영화</h3>
+            <h3>{{user}}님 연극 정보</h3>
 
             <div>
-                <h4>title : {{target_user.profile.play1_title}}  &nbsp&nbsp&nbsp  rate : {{target_user.profile.play1_rate}}</h4>
-                <h4>title : {{target_user.profile.play2_title}}  &nbsp&nbsp&nbsp  rate : {{target_user.profile.play2_rate}}</h4>
-                <h4>title : {{target_user.profile.play3_title}}  &nbsp&nbsp&nbsp  rate : {{target_user.profile.play3_rate}}</h4>
+                <h4>제목 : {{target_user.profile.play1_title}}  &nbsp&nbsp&nbsp  평점 : {{target_user.profile.play1_rate}}</h4>
+                <h4>제목 : {{target_user.profile.play2_title}}  &nbsp&nbsp&nbsp  평점 : {{target_user.profile.play2_rate}}</h4>
+                <h4>제목 : {{target_user.profile.play3_title}}  &nbsp&nbsp&nbsp  평점 : {{target_user.profile.play3_rate}}</h4>
             </div>
 
             <br>
@@ -42,7 +42,7 @@
                 </a>
                 {% else %}
                 <h2>
-                    닉네임 미설정
+                    영화 미설정
                 </h2>
                 {% endif %}
             {% endif %}
@@ -54,7 +54,7 @@
                    class="material-icons round_button mx-1">
                     settings
                 </a>
-                <a href="{% url 'accountapp:delete' pk=user.pk %}"
+                <a href="{% url 'accountapp:delete' pk=user.pk %} "
                    class="material-icons round_button mx-1">
                     close
                 </a>

@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+  <style>
+
+    .container{
+      padding: 0;
+      margin: 0, auto;
+    }
+
+    .container div {
+
+      display: flex;
+      justify-content: center;
+      border-radius: 1rem;
+      box-shadow: 0 0 1rem grey;
+    }
+    .container a{
+      width:45%;
+      max-width: 250px;
+    }
+    .container img{
+      width: 100%;
+      border-radius: 1rem;
+    }
+
+
+  </style>
+
+  <div style="text-align:center;padding:3rem">
+
+
+
+  </div>
+  {% if object %}
+  <div class="container">
+    {% for play in object %}
+      <a>
+        {% include 'snippets/card_article.html' with play=play %}
+      </a>
+    {% endfor %}
+  </div>
+
+  <script src="{% static 'js/magicgrid.js' %}"></script>
+  {% else %}
+  <div class="text-center">
+    <h1>No Articles YET!</h1>
+  </div>
+  {% endif %}
+
+<!--  {% include 'snippets/pagination.html' %}-->
+
+
+{% endblock %}
